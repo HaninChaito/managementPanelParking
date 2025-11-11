@@ -55,7 +55,7 @@ export default function SetPassword() {
       setTimeout(() => navigate('/login'), 2000);
     } catch (err) {
       console.error('Set password error:', err);
-      setError('فشل الاتصال بالخادم');
+      setError('فشلل الاتصال بالخادم');
     } 
   };
 
