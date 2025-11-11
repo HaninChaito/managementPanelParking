@@ -18,7 +18,7 @@ export async function GetModifiedRequests(req, res) {
   try {
     const FacultyID = req.manager.FacultyID;
     const [rows] = await db.query(
-      'SELECT * FROM uservehiclerequestview WHERE Status = "modified" AND FacultyID = ?',
+      "SELECT * FROM uservehiclerequestview WHERE Status = 'modified' AND FacultyID = ?",
       [FacultyID]
     );
     res.json(rows);
