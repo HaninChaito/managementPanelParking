@@ -5,7 +5,7 @@ export async function GetRequestsHistory(req, res) {
     const FacultyID = req.manager.FacultyID;
 
     const [rows] = await db.query(
-      "SELECT * FROM requesthistoryformanagerView WHERE FacultyID = ?",
+      "SELECT * FROM requesthistoryformanagerview WHERE FacultyID = ?",
       [FacultyID]
     );
     res.json(rows);
