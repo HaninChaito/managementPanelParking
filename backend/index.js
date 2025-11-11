@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 5001;
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:5174", // Frontend URL
+    origin: "https://management-panel-parking.vercel.app", // Frontend URL
     credentials: true,
   })
 );
