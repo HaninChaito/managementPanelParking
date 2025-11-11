@@ -63,7 +63,7 @@ const VisitorRequestForm = () => {
     if (DrivingLiscence) data.append("DrivingLiscence", DrivingLiscence);
 
     try {
-      const res = await fetch("http://localhost:5001/VistorRequest/SendVisitorRequest", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/VistorRequest/SendVisitorRequest`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`, 

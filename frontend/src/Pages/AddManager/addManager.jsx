@@ -34,7 +34,7 @@ const AddManagerForm = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5001/api/managers/add', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/managers/add`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

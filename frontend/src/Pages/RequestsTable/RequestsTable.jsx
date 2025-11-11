@@ -16,8 +16,8 @@ export default function RequestsTable() {
     const token = localStorage.getItem("token");
     const url =
       viewType === "pending"
-        ? "http://localhost:5001/RequestTable/PendingRequests"
-        : "http://localhost:5001/RequestTable/ModifiedRequests";
+        ? `${import.meta.env.VITE_API_URL}/RequestTable/PendingRequests`
+        : `${import.meta.env.VITE_API_URL}/RequestTable/ModifiedRequests`;
 
     try {
       const response = await axios.get(url, {
@@ -48,7 +48,7 @@ export default function RequestsTable() {
   };
 
   const handleImageClick = (imageName) => {
-    setSelectedImage(`http://localhost:5000/uploads/${imageName}`);
+    setSelectedImage(`${import.meta.env.VITE_API_URL}/uploads/${imageName}`);
     setIsModalOpen(true);
   };
 
@@ -72,7 +72,7 @@ useEffect(() => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5001/RequestTable/AcceptRequest",
+        `${import.meta.env.VITE_API_URL}/RequestTable/AcceptRequest`,
         { Req_ID: id },
         {
           headers: {
@@ -94,7 +94,7 @@ useEffect(() => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5001/RequestTable/DeclineRequest",
+        `${import.meta.env.VITE_API_URL}/RequestTable/DeclineRequest`,
         { Req_ID: id },
         {
           headers: {
@@ -107,7 +107,7 @@ useEffect(() => {
       fetchRequests();
 
     
-const email = await fetch('http://localhost:5001/register/send-email', {
+const email = await fetch(`${import.meta.env.VITE_API_URL}/register/send-email`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -136,7 +136,7 @@ console.log(result);
 
     try {
       const response = await axios.post(
-        "http://localhost:5001/RequestTable/EditRequest",
+        `${import.meta.env.VITE_API_URL}/RequestTable/EditRequest`,
         { Req_ID: id, Comment: commentText },
         {
           headers: {
@@ -148,7 +148,7 @@ console.log(result);
       console.log(response.data.msg);
       fetchRequests();
 
-const email = await fetch('http://localhost:5001/register/send-email', {
+const email = await fetch(`${import.meta.env.VITE_API_URL}/register/send-email`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -234,7 +234,7 @@ console.log(result);
                   <td>
                     <div className="image-container">
                       <img
-                        src={`http://localhost:5000/uploads/${request.vehicleImage}`}
+                        src={`${import.meta.env.VITE_API_URL}/uploads/${request.vehicleImage}`}
                         alt="صورة المركبة"
                         className="thumbnail-image"
                         onClick={() => handleImageClick(request.vehicleImage)}
@@ -245,7 +245,7 @@ console.log(result);
                   <td>
                     <div className="image-container">
                       <img
-                        src={`http://localhost:5000/uploads/${request.insuranceDocument}`}
+                        src={`${import.meta.env.VITE_API_URL}/uploads/${request.insuranceDocument}`}
                         alt="وثيقة التأمين"
                         className="thumbnail-image"
                         onClick={() =>
@@ -259,7 +259,7 @@ console.log(result);
                   <td>
                     <div className="image-container">
                       <img
-                        src={`http://localhost:5000/uploads/${request.drivingLicense}`}
+                        src={`${import.meta.env.VITE_API_URL}/uploads/${request.drivingLicense}`}
                         alt="وثيقة التأمين"
                         className="thumbnail-image"
                         onClick={() => handleImageClick(request.drivingLicense)}

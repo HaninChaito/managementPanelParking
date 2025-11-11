@@ -23,7 +23,7 @@ export default function CreateAccount() {
 setError('');
 
 try {
-  const response = await fetch('http://localhost:5001/register/CreateAccount', {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/register/CreateAccount`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(credentials)
@@ -41,7 +41,7 @@ try {
  
 
 
-const email = await fetch('http://localhost:5001/register/send-email', {
+const email = await fetch(`${import.meta.env.VITE_API_URL}/register/send-email`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'

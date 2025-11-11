@@ -18,7 +18,7 @@ const RequestsHistory = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.get(
-        "http://localhost:5001/RequestHistory/GetHistory",
+        `${import.meta.env.VITE_API_URL}/RequestHistory/GetHistory`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -121,7 +121,7 @@ const RequestsHistory = () => {
 
   const fetchUserInfo = async (UserID) => {
     try {
-      const res = await axios.get("http://localhost:5001/RequestHistory/user", {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/RequestHistory/user`, {
         params: { UserID: UserID },
       });
       setModalTitle("معلومات المستخدم");
@@ -134,7 +134,7 @@ const RequestsHistory = () => {
   const fetchManagerInfo = async (ManagerId) => {
     try {
       const res = await axios.get(
-        "http://localhost:5001/RequestHistory/manager",
+        `${import.meta.env.VITE_API_URL}/RequestHistory/manager`,
         {
           params: { ManagerId: ManagerId },
         }
@@ -150,7 +150,7 @@ const RequestsHistory = () => {
     try {
       console.log(Vehicle_ID, "vehiceid");
       const res = await axios.get(
-        "http://localhost:5001/RequestHistory/vehicle",
+        `${import.meta.env.VITE_API_URL}/RequestHistory/vehicle`,
         {
           params: { Vehicle_ID: Vehicle_ID },
         }
