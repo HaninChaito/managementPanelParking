@@ -4,7 +4,7 @@ export async function GetPendingRequests(req, res) {
   try {
     const FacultyID = req.manager.FacultyID;
     const [rows] = await db.query(
-      'SELECT * FROM uservehiclevequestview WHERE Status = "pending"  AND FacultyID = ? ',
+      'SELECT * FROM uservehiclevrequestview WHERE Status = "pending"  AND FacultyID = ? ',
       [FacultyID]
     );
     res.json(rows);
@@ -18,7 +18,7 @@ export async function GetModifiedRequests(req, res) {
   try {
     const FacultyID = req.manager.FacultyID;
     const [rows] = await db.query(
-      'SELECT * FROM uservehiclevequestview WHERE Status = "modified" AND FacultyID = ?',
+      'SELECT * FROM uservehiclervequestview WHERE Status = "modified" AND FacultyID = ?',
       [FacultyID]
     );
     res.json(rows);
