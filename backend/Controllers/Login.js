@@ -7,7 +7,7 @@ export async function login(req, res) {
   try {
     const { Email, Password } = req.body;
 
-    const [rows] = await db.query("SELECT * FROM User WHERE Email = ?", [
+    const [rows] = await db.query("SELECT * FROM user WHERE Email = ?", [
       Email,
     ]);
 
@@ -135,7 +135,7 @@ export const setPassword = async (req, res) => {
 
   try {
     // Check if the user exists
-    const [rows] = await db.query('SELECT * FROM User WHERE Email = ?', [email]);
+    const [rows] = await db.query('SELECT * FROM user WHERE Email = ?', [email]);
 
     if (rows.length === 0) {
       return res.status(404).json({ message: 'المستخدم غير موجود' });
@@ -145,7 +145,7 @@ export const setPassword = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     // Update the password
-    await db.query('UPDATE User SET Password = ? WHERE Email = ?', [hashedPassword, email]);
+    await db.query('UPDATE user SET Password = ? WHERE Email = ?', [hashedPassword, email]);
 
     return res.status(200).json({ message: 'تم تحديث كلمة المرور بنجاح' });
   } catch (error) {
