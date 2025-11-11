@@ -26,7 +26,7 @@ export async function login(req, res) {
 
     if (userExist) {
       const [manager] = await db.query(
-        "SELECT * FROM Manager WHERE UserID = ?",
+        "SELECT * FROM manager WHERE UserID = ?",
         [userExist.UserID]
       );
       if (manager.length === 0) {
