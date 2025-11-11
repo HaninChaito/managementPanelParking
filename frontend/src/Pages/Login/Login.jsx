@@ -31,7 +31,7 @@ export default function Login() {
 
     try {
       const response = await axios.post(
-        "${import.meta.env.VITE_API_URL}/register/login",
+        '${import.meta.env.VITE_API_URL}/register/login',
         credentials
       );
       if (response.data.msg === "success") {
